@@ -1,7 +1,6 @@
 package com.demo.service.impl;
 
 import com.demo.mapper.OrderDataMapper;
-import com.demo.model.OrderDataDo;
 import com.demo.service.OrderDataService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
