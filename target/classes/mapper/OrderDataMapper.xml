@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.demo.mapper.OrderDataMapper">
+
+    <resultMap id="OrderDataResultMap" type="com.demo.model.OrderDataDo">
+        <id column="id" property="id"/>
+        <result column="updated_at" jdbcType="LONG" property="timestamp"/>
+        <result column="quantity" jdbcType="INTEGER" property="quantity"/>
+        <result column="status" jdbcType="VARCHAR" property="status"/>
+        <result column="price" jdbcType="INTEGER" property="price"/>
+    </resultMap>
+
+    <update id="updateOrderStatus">
+        UPDATE user_scan
+        SET user_scan.updated_at = #{timestamp}, user_scan.status = #{status}
+        WHERE user_scan.id = #{id}
+    </update>
+
+</mapper>
