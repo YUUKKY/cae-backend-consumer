@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class KafkaOrderConsumer {
 
+    public static final String TOPIC = "orders";
     private final OrderDataService orderDataService;
     private final ObjectMapper objectMapper = new ObjectMapper();
 
@@ -15,7 +16,7 @@ public class KafkaOrderConsumer {
         this.orderDataService = orderDataService;
     }
 
-    @KafkaListener(topics = "${order.kafka.topic:orders}", groupId = "order-consumer-group")
+    @KafkaListener(topics = {TOPIC})
     public void listen(String message) {
         try {
             OrderDataDo order = objectMapper.readValue(message, OrderDataDo.class);
