@@ -4,6 +4,8 @@ import com.demo.model.UserDataDo;
 import com.demo.service.UserDataService;
 import com.demo.vo.UserDataVo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 
@@ -13,6 +15,12 @@ public class UserDataController {
     @Autowired
     private UserDataService dataService;
 
+    @CrossOrigin
+    @RequestMapping(value = "/health", method = RequestMethod.GET)
+    public ResponseEntity<?> health() {
+        return ResponseEntity.status(HttpStatus.OK).build();
+    }
+    
     @CrossOrigin
     @RequestMapping(value = "/query", method = RequestMethod.GET)
     public UserDataVo getData(@RequestParam(value = "user_name") String userName) {
