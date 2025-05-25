@@ -15,13 +15,13 @@ public class UserDataController {
     @Autowired
     private UserDataService dataService;
 
-    @CrossOrigin
+    @CrossOrigin(origins = "*")
     @RequestMapping(value = "/health", method = RequestMethod.GET)
     public ResponseEntity<?> health() {
         return ResponseEntity.status(HttpStatus.OK).build();
     }
-    
-    @CrossOrigin
+
+    @CrossOrigin(origins = "*")
     @RequestMapping(value = "/query", method = RequestMethod.GET)
     public UserDataVo getData(@RequestParam(value = "user_name") String userName) {
         UserDataDo data = dataService.getData(userName);
@@ -37,13 +37,13 @@ public class UserDataController {
         return new UserDataVo().setUserName(data.getUserName()).setScanNum(data.getScanNum());
     }
 
-    @CrossOrigin
+    @CrossOrigin(origins = "*")
     @RequestMapping(value = "/total_scan_num", method = RequestMethod.GET)
     public Integer getTotalScanNum() {
         return dataService.getTotalScanNum();
     }
 
-    @CrossOrigin
+    @CrossOrigin(origins = "*")
     @RequestMapping(value = "/consume_cpu", method = RequestMethod.GET)
     public Integer clientTest() {
         // 消耗CPU 的计算
