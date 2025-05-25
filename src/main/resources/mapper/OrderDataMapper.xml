@@ -8,10 +8,11 @@
         <result column="quantity" jdbcType="INTEGER" property="quantity"/>
         <result column="status" jdbcType="VARCHAR" property="status"/>
         <result column="price" jdbcType="INTEGER" property="price"/>
+        <result column="type" jdbcType="VARCHAR" property="type"/>
     </resultMap>
 
     <update id="updateOrderStatus">
-        UPDATE user_scan
+        UPDATE orders
         SET user_scan.updated_at = #{timestamp}, user_scan.status = #{status}
         WHERE user_scan.id = #{id}
     </update>
