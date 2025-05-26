@@ -13,8 +13,8 @@ public class OrderDataServiceImpl implements OrderDataService {
     private OrderDataMapper dataMapper;
 
     @Override
-    public void updateOrderStatus(String id, Long timestamp, String status) {
-        dataMapper.updateOrderStatus(id, timestamp, status);
+    public void updateOrderStatus(String id, String status) {
+        dataMapper.updateOrderStatus(id, status);
     }
 
 }

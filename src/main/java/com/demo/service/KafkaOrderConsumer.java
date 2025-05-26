@@ -24,7 +24,7 @@ public class KafkaOrderConsumer {
         try {
             OrderDataDo order = objectMapper.readValue(record.value(), OrderDataDo.class);
             // 消费后状态改为 FINISH
-            orderDataService.updateOrderStatus(order.getId(), order.getTimestamp(), "FINISH");
+            orderDataService.updateOrderStatus(order.getId(), "FINISH");
             System.out.println("Order saved (status=FINISH): " + order.getId());
         } catch (Exception e) {
             System.err.println("Failed to process order message: " + e);

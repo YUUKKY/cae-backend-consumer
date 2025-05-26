@@ -13,7 +13,7 @@
 
     <update id="updateOrderStatus">
         UPDATE orders
-        SET orders.timestamp = #{timestamp}, orders.status = #{status}
+        SET orders.status = #{status}
         WHERE orders.id = #{id}
     </update>
 
