@@ -6,6 +6,8 @@ import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Service;
 
+import java.util.Objects;
+
 @Service
 public class KafkaOrderConsumer {
 
@@ -24,7 +26,12 @@ public class KafkaOrderConsumer {
         try {
             OrderDataDo order = objectMapper.readValue(record.value(), OrderDataDo.class);
             // 消费后状态改为 FINISH
-            orderDataService.updateOrderStatus(order.getId(), "FINISH");
+            if (Objects.equals(order.getType(), "agent")) {
+                order.setStatus("FINISH");
+                orderDataService.insert(order);
+            } else {
+                orderDataService.updateOrderStatus(order.getId(), "FINISH");
+            }
             System.out.println("Order saved (status=FINISH): " + order.getId());
         } catch (Exception e) {
             System.err.println("Failed to process order message: " + e);

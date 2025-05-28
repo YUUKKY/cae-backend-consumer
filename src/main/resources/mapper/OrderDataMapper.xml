@@ -17,4 +17,9 @@
         WHERE orders.id = #{id}
     </update>
 
+    <insert id="insert">
+        INSERT INTO orders(id, status, quantity, timestamp, price, type)
+        VALUES (#{id}, #{status}, #{quantity}, #{timestamp}, #{price}, #{type})
+    </insert>
+
 </mapper>

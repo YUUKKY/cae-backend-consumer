@@ -1,6 +1,7 @@
 package com.demo.service.impl;
 
 import com.demo.mapper.OrderDataMapper;
+import com.demo.model.OrderDataDo;
 import com.demo.service.OrderDataService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,6 +16,11 @@ public class OrderDataServiceImpl implements OrderDataService {
     @Override
     public void updateOrderStatus(String id, String status) {
         dataMapper.updateOrderStatus(id, status);
+    }
+
+    @Override
+    public void insert(OrderDataDo orderData) {
+        dataMapper.insert(orderData.getId(), orderData.getStatus(), orderData.getQuantity(), orderData.getTimestamp(), orderData.getPrice(), orderData.getType());
     }
 
 }

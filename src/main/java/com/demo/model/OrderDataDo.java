@@ -21,16 +21,4 @@ public class OrderDataDo implements Serializable {
         this.price = price;
         this.type = type;
     }
-
-//    // Getters and Setters
-//    public String getId() { return id; }
-//    public void setId(String id) { this.id = id; }
-//    public Long getTimestamp() { return timestamp; }
-//    public void setTimestamp(Long timestamp) { this.timestamp = timestamp; }
-//    public Integer getQuantity() { return quantity; }
-//    public void setQuantity(Integer quantity) { this.quantity = quantity; }
-//    public String getStatus() { return status; }
-//    public void setStatus(String status) { this.status = status; }
-//    public Integer getPrice() { return price; }
-//    public void setPrice(Integer price) { this.price = price; }
 }
